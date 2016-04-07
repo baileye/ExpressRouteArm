@@ -62,10 +62,10 @@ $CircuitName = "ExpressRouteARMCircuit"
 $rg = "ExpressRouteResourceGroup"
 $rglocation = "North Europe"
 $circuit = Get-AzureRmExpressRouteCircuit -Name $CircuitName -ResourceGroupName $rg
-Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 $authkey = $auth1.AuthorizationKey
 $peerId = $circuit.Id
 # Keep a note of the 'AuthorizationKey' returned as part of the response to the above command
